@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
+Route::get('/grafico-radial/{id}', [PerfilController::class, 'grafico'])->name('company.graph.radial');
 Route::get('/clear', function(){
     Artisan::call('optimize');
     dump('Optmize done');
