@@ -21,7 +21,7 @@ class History extends Resource {
             Text::make('URL Video', 'video_url'),
 
             Image::make('Imagen', 'image')
-                ->disk('public')->path('history')
+                ->disk('public')->path('storage/history')
                 ->help('Tamaño recomendado: 275 x 350 pixeles'),
         ];
     }
