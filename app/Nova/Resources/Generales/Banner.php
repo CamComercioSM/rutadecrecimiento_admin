@@ -27,7 +27,7 @@ class Banner extends Resource
                 ->rules('max:255'),
 
             Image::make('Imagen', 'image')
-                ->disk('public')->path('banners')
+                ->disk('public')->path('/storage/banners')
                 ->help('Tamaño recomendado: 1920 x 850 pixeles | Recomendamos evitar el uso de fondos oscuros en el diseño, ya que esto puede dificultar la legibilidad de la tipografía utilizada para títulos y descripciones.'),
 
             Textarea::make('Descripción', 'description')
