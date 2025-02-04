@@ -35,7 +35,7 @@ class Programa extends Resource
                 ->rules('required'),
 
             Image::make('Logotipo', 'logo')
-                ->disk('public')->path('programas'),
+                ->disk('public')->path('storage/programas'),
 
             Textarea::make('Beneficios', 'beneficios'),
 
@@ -53,7 +53,7 @@ class Programa extends Resource
                 ->hideFromIndex(),
 
             Image::make('Imagen del Procedimiento', 'procedimiento_imagen')
-                ->disk('public')->path('programas'),
+                ->disk('public')->path('storage/programas'),
 
             Textarea::make('Herramientas Requeridas', 'herramientas_requeridas'),
 
