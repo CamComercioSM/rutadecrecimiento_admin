@@ -24,7 +24,7 @@ class Capsula extends Resource
             ID::make('capsula_id'),
 
             Image::make('Imagen', 'imagen')
-                ->disk('public')->path('capsules'),
+                ->disk('public')->path('storage/capsules'),
 
             Text::make('Nombre', 'nombre')
                 ->rules('required'),

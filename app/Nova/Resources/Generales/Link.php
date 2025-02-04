@@ -36,7 +36,7 @@ class Link extends Resource {
 
             NovaDependencyContainer::make([
                 File::make('Archivo', 'value')
-                ->disk('public')->path('links')
+                ->disk('public')->path('storage/links')
             ])->dependsOn('type', 1),
         ];
     }

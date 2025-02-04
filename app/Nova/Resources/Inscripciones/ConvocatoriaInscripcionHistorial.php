@@ -42,7 +42,7 @@ class ConvocatoriaInscripcionHistorial extends Resource
 
             File::make('Archivo', 'archivo')
                     ->disk('public')
-                    ->path('aplications'),
+                    ->path('storage/aplications'),
         ];
     }
 

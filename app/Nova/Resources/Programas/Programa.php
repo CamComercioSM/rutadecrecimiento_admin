@@ -53,7 +53,7 @@ class Programa extends Resource
                 ->hideFromIndex(),
 
             Image::make('Imagen del Procedimiento', 'procedimiento_imagen')
-                ->disk('public')->path('/programas'),
+                ->disk('public')->path('storage/programas'),
 
             Textarea::make('Herramientas Requeridas', 'herramientas_requeridas'),
 
