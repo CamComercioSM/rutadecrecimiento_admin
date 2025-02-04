@@ -48,6 +48,7 @@ class Section extends Resource {
                     Textarea::make('Descripción', 'histories_description'),
                     Text::make('Título', 'discover_title'),
                     Image::make('Imagen de fondo', 'discover_bg_image')
+                        ->disk('public')->path('storage/logos')
                         ->help('Tamaño recomendado: 1100 x 355 pixeles'),
                     Text::make('Etiqueta del botón 1', 'discover_button_1_label'),
                     Text::make('URL del botón 1', 'discover_button_1_url'),
@@ -55,8 +56,10 @@ class Section extends Resource {
                     Text::make('URL del botón 2', 'discover_button_2_url')
                 ])->addLayout('Pié de página', 'footer', [
                     Image::make('Logo ruta C', 'footer_logo_rutac')
+                        ->disk('public')->path('storage/logos')
                         ->help('Tamaño recomendado: 400 x 88 pixeles'),
                     Image::make('Logo aliado', 'footer_logo_ally')
+                        ->disk('public')->path('storage/logos')
                         ->help('Tamaño recomendado: 115 x 110 pixeles'),
                     Text::make('Número de contacto', 'footer_number_contact'),
                     Text::make('Página aliado', 'footer_ally_page'),

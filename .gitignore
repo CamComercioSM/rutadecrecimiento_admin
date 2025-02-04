@@ -30,7 +30,7 @@ Homestead.json
 auth.json
 storage/framework/
 storage/logs/
-
+.htaccess
 /.well-know
 /cgi-bin
 .user.ini
