@@ -44,6 +44,11 @@ class UnidadProductiva extends Resource {
         return [
             ID::make('id', 'unidadproductiva_id'),
             
+            Image::make('Logo', 'logo')
+            ->disk('public')->path('storage/logos')
+            ->help('Tamaño recomendado: 350 x 350 pixeles'),
+
+
             Date::make('Fecha de Registro', 'fecha_creacion')
                 ->rules('required')
                 ->format('YYYY-MM-DD'),
