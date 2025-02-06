@@ -16,7 +16,7 @@ class History extends Resource {
 
     public function fields(Request $request) {
         return [
-            Text::make('Nombre', 'name'),
+            Text::make('Nombre', 'name')->sortable(),
 
             Text::make('URL Video', 'video_url'),
 

@@ -27,14 +27,14 @@ class InscripcionesRequisitosIndicadores extends Resource
     
     public function fields(Request $request) {
         return [
-            ID::make('requisito_id'),
+            ID::make('requisito_id')->sortable(),
 
             Text::make('Nombre', 'requisito_titulo')
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
             Select::make('Indicador', 'indicador_id')
                 ->options(\App\Models\ProgramaIndicador::pluck('indicador_nombre', 'indicador_id')->toArray())
-                ->displayUsingLabels(),
+                ->displayUsingLabels()->sortable(),
 
             Select::make('Tipo', 'preguntatipo_id')
                 ->hideFromIndex()

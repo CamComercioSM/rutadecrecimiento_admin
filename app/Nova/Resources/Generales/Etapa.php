@@ -20,12 +20,12 @@ class Etapa extends Resource {
 
     public function fields(Request $request) {
         return [
-            ID::make('Id', 'etapa_id'),
+            ID::make('Id', 'etapa_id')->sortable(),
 
             Text::make('Nombre', 'name')
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
-            Textarea::make('Descripción', 'description'),
+            Textarea::make('Descripción', 'description')->sortable(),
         ];
     }
 }

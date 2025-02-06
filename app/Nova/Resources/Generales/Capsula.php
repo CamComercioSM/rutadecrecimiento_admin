@@ -21,17 +21,17 @@ class Capsula extends Resource
 
     public function fields(Request $request) {
         return [
-            ID::make('capsula_id'),
+            ID::make('capsula_id')->sortable(),
 
             Image::make('Imagen', 'imagen')
                 ->disk('public')->path('storage/capsules'),
 
             Text::make('Nombre', 'nombre')
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
             Textarea::make('Descripción', 'descripcion'),
 
-            Text::make('URL Video', 'url_video'),
+            Text::make('URL Video', 'url_video')->sortable(),
         ];
     }
 }

@@ -28,25 +28,30 @@ class Empresario extends Resource
     public function fields(Request $request) {
         return [
             Number::make('No documento', 'identification')
-                ->rules('required'),
+                ->rules('required')
+                ->sortable(),
                 
             Text::make('Nombre (s)', 'name')
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->sortable(),
 
             Text::make('Apellido (s)', 'lastname')
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->sortable(),
 
             Text::make('Email')
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+                ->updateRules('unique:users,email,{{resourceId}}')
+                ->sortable(),
 
             HasMany::make('Empresa', 'unidadesProductivas', UnidadProductiva::class),
 
             Password::make('Contraseña', 'password')
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
-                ->updateRules('nullable', 'string', 'min:8'),
+                ->updateRules('nullable', 'string', 'min:8')
+                ->sortable(),
         ];
     }
 

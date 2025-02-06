@@ -27,10 +27,10 @@ class InscripcionesRequisitos extends Resource
     
     public function fields(Request $request) {
         return [
-            ID::make('requisito_id'),
+            ID::make('requisito_id')->sortable(),
 
             Text::make('Nombre', 'requisito_titulo')
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
             Select::make('Tipo', 'preguntatipo_id')
                 ->hideFromIndex()

@@ -37,8 +37,8 @@ class DiagnosticoResultado extends Resource
             ->sortable(),
             
             Text::make('NIT', function () {
-                return $this->unidadproductiva->nit ?? '';
-            })->sortable(),
+                return $this->unidadproductiva->nit ?? ''->sortable();
+            }),
 
             BelongsTo::make('Unidad Productiva', 'unidadproductiva', UnidadProductiva::class)->sortable(),
             

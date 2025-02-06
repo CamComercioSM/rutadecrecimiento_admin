@@ -20,10 +20,10 @@ class PreguntaTipo extends Resource
 
     public function fields(Request $request) {
         return [
-            ID::make('preguntatipo_id'),
+            ID::make('preguntatipo_id')->sortable(),
 
             Text::make('Nombre', 'preguntatipo_nombre')
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
             Boolean::make('Permitir opciones', 'preguntatipo_opciones')
                 ->rules('required')

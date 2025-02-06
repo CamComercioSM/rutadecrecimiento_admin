@@ -19,10 +19,10 @@ class PreguntaGrupo extends Resource
 
     public function fields(Request $request) {
         return [
-            ID::make('preguntagrupo_id'),
+            ID::make('preguntagrupo_id')->sortable(),
 
             Text::make('Nombre', 'preguntagrupo_nombre')
-                ->rules('required'),
+                ->rules('required')->sortable(),
         ];
     }
 }

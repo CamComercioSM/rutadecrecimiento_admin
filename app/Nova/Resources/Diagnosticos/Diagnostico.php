@@ -29,14 +29,14 @@ class Diagnostico extends Resource
 
     public function fields(Request $request) {
         return [
-            ID::make('diagnostico_id'),
+            ID::make('diagnostico_id')->sortable(),
 
             Text::make('Nombre', 'diagnostico_nombre')
-                ->rules('required'),
+                ->rules('required')->sortable(),
             
             Select::make('Etapa', 'diagnostico_etapa_id')
                 ->options(\App\Models\Etapa::pluck('name', 'etapa_id')->toArray())
-                ->displayUsingLabels(),
+                ->displayUsingLabels()->sortable(),
 
             Boolean::make('Con ventas', 'diagnostico_conventas')
                 ->rules('required')

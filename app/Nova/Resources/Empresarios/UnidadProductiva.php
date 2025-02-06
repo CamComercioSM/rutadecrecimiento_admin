@@ -42,33 +42,42 @@ class UnidadProductiva extends Resource {
 
     public function fields(Request $request) {
         return [
-            ID::make('id', 'unidadproductiva_id'),
+            ID::make('id', 'unidadproductiva_id')
+            ->sortable(),
             
         
 
             Date::make('Fecha de Registro', 'fecha_creacion')
                 ->rules('required')
-                ->format('YYYY-MM-DD'),
+                ->format('YYYY-MM-DD')
+                ->sortable(),
             
             Text::make('Tipo de Registro', 'tipo_registro_rutac')
-                ->rules('required'),
+                ->rules('required')
+                ->sortable(),
             
             Text::make('Razon social', 'business_name')
-                ->rules('required'),
+                ->rules('required')
+                ->sortable(),
 
             Text::make('NIT', 'nit')
-                ->rules('required'),
+                ->rules('required')
+                ->sortable(),
 
-            Text::make('Nombre del representante legal', 'name_legal_representative'),
+            Text::make('Nombre del representante legal', 'name_legal_representative')
+            ->sortable(),
 
             Text::make('Numero de matricula', 'registration_number')
-                ->rules('required')->hideFromIndex(),
+                ->rules('required')->hideFromIndex()
+                ->sortable(),
 
             Date::make('Fecha de matricula', 'registration_date')
-                ->rules('required')->hideFromIndex(),
+                ->rules('required')->hideFromIndex()
+                ->sortable(),
 
             Text::make('Email registrado', 'registration_email')
-                ->rules('required'),
+                ->rules('required')
+                ->sortable(),
 
             Select::make('Tipo de persona', 'tipopersona_id')
                 ->options(UnidadProductivaPersona::pluck('tipoPersonaNOMBRE', 'tipopersona_id'))
@@ -76,19 +85,22 @@ class UnidadProductiva extends Resource {
 
             Select::make('Sector', 'sector_id')
                 ->options(Sector::pluck('sectorNOMBRE', 'sector_id'))
-                ->displayUsingLabels(),
+                ->displayUsingLabels()
+                ->sortable(),
 
 
             Select::make('Tamaño', 'tamano_id')
                 ->options(UnidadProductivaTamano::pluck('tamanoNOMBRE', 'tamano_id'))
-                ->displayUsingLabels(),
+                ->displayUsingLabels()
+                ->sortable(),
 
             //Para mostrar usamos los campos de Stack Line, ya que puede haber valores en null
             Stack::make('Tipo de persona', [
                 Line::make(null, function () {
                     return $this->tipoPersona ? $this->tipoPersona->tipoPersonaNOMBRE : null;
                 }),
-            ])->hideFromIndex(),
+            ])->hideFromIndex()
+            ->sortable(),
 
             Stack::make('Sector', [
                 Line::make(null, function () {

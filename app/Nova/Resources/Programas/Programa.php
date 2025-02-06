@@ -29,7 +29,7 @@ class Programa extends Resource
     public function fields(Request $request) {
         return [
             Text::make('Nombre', 'nombre')
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
             Textarea::make('Descripción', 'descripcion')
                 ->rules('required'),
@@ -41,7 +41,7 @@ class Programa extends Resource
 
             Textarea::make('Requisitos', 'requisitos'),
 
-            Text::make('Duración', 'duracion'),
+            Text::make('Duración', 'duracion')->sortable(),
 
             Textarea::make('Dirigido A', 'dirigido_a'),
 
@@ -72,7 +72,7 @@ class Programa extends Resource
                             'name' => $etapa->name,
                         ];
                     });
-                }),
+                })->sortable(),
 
             HasMany::make('Convocatorias', 'convocatorias', ProgramaConvocatoria::class),
         ];

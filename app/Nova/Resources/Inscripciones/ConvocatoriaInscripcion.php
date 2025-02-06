@@ -35,17 +35,20 @@ class ConvocatoriaInscripcion extends Resource
         return 
         [
             BelongsTo::make('Convocatoria', 'convocatoria', ProgramaConvocatoria::class)
-            ->viewable(false)->withoutTrashed()->hideWhenUpdating(),
+            ->viewable(false)->withoutTrashed()->hideWhenUpdating()
+            ->sortable(),
 
             BelongsTo::make('Unidad Productiva', 'unidadproductiva', UnidadProductiva::class)
-            ->viewable(false)->withoutTrashed()->hideWhenUpdating(),
+            ->viewable(false)->withoutTrashed()->hideWhenUpdating()
+            ->sortable(),
                         
             Select::make('Estado', 'inscripcionestado_id')
                 ->options(\App\Models\InscripcionEstado::pluck('inscripcionEstadoNOMBRE', 'inscripcionestado_id')->toArray())
-                ->displayUsingLabels(),
+                ->displayUsingLabels()
+                ->sortable(),
 
             DateTime::make('Fecha de inscripción', 'fecha_creacion')
-                ->hideWhenUpdating()->hideWhenCreating(),
+                ->hideWhenUpdating()->hideWhenCreating()->sortable(),
             
             Textarea::make('Comentarios', 'comentarios'),
 

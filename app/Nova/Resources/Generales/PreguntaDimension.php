@@ -19,10 +19,10 @@ class PreguntaDimension extends Resource
 
     public function fields(Request $request) {
         return [
-            ID::make('preguntadimension_id'),
+            ID::make('preguntadimension_id')->sortable(),
 
             Text::make('Nombre', 'preguntadimension_nombre')
-                ->rules('required'),
+                ->rules('required')->sortable(),
         ];
     }
 }

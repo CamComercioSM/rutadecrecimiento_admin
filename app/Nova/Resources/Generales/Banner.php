@@ -21,10 +21,10 @@ class Banner extends Resource
     {
         return [
             Text::make('Nombre', 'name')
-                ->help('Este nombre no se mostrará en la página web'),
+                ->help('Este nombre no se mostrará en la página web')->sortable(),
 
             Text::make('Titulo', 'title')
-                ->rules('max:255'),
+                ->rules('max:255')->sortable(),
 
             Image::make('Imagen', 'image')
                 ->disk('public')->path('storage/banners')

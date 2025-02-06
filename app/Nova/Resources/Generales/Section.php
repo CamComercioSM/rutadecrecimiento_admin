@@ -23,9 +23,9 @@ class Section extends Resource {
         return [
 
             Text::make('Etiqueta', 'tag')
-                ->rules('required', 'max:48'),
+                ->rules('required', 'max:48')->sortable(),
 
-            Text::make('Título principal (H1)', 'h1'),
+            Text::make('Título principal (H1)', 'h1')->sortable(),
 
             new Panel('SEO', $this->SEO()),
 
@@ -34,9 +34,9 @@ class Section extends Resource {
 
             new Panel('Contenido', $this->Contenido()),
 
-            HasMany::make('Historias', 'histories', History::class),
+            HasMany::make('Historias', 'histories', History::class)->sortable(),
 
-            HasMany::make('Links', 'links', Link::class),
+            HasMany::make('Links', 'links', Link::class)->sortable(),
         ];
     }
 

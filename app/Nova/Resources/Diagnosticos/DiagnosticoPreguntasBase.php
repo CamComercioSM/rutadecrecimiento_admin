@@ -28,16 +28,16 @@ class DiagnosticoPreguntasBase extends Resource
     
     public function fields(Request $request) {
         return [
-            ID::make('pregunta_id'),
+            ID::make('pregunta_id')->sortable(),
 
             Text::make('Nombre', 'pregunta_titulo')
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
             Select::make('Grupo', 'preguntagrupo_id')
                 ->hideFromIndex()
                 ->options(\App\Models\PreguntaGrupo::pluck('preguntagrupo_nombre', 'preguntagrupo_id')->toArray())
                 ->displayUsingLabels()
-                ->rules('required'),
+                ->rules('required')->sortable(),
 
             Select::make('Tipo', 'preguntatipo_id')
                 ->hideFromIndex()
@@ -54,7 +54,7 @@ class DiagnosticoPreguntasBase extends Resource
             Number::make('Nivel de porcentaje', 'pregunta_porcentaje')->rules('required')
                 ->min(0)
                 ->max(100)
-                ->help('Recuerde que la sumataria de los niveles de todas preguntas de la misma dimension debe ser 100%'),
+                ->help('Recuerde que la sumataria de los niveles de todas preguntas de la misma dimension debe ser 100%')->sortable(),
 
             HasMany::make('Opciones', 'opciones', PreguntaOpcionBase::class)
                 ->canSee(function () {return $this->tipo && $this->tipo->preguntatipo_opciones; }),

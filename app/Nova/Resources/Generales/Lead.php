@@ -27,15 +27,15 @@ class Lead extends Resource {
                 ->options([
                     0 => 'Idea de negocio',
                     1 => 'Empresa sin registrar',
-                ])->displayUsingLabels(),
+                ])->displayUsingLabels()->sortable(),
 
-            Text::make('Nombre y apellido', 'name'),
+            Text::make('Nombre y apellido', 'name')->sortable(),
 
-            Text::make('Documento', 'document'),
+            Text::make('Documento', 'document')->sortable(),
 
-            Text::make('Email', 'email'),
+            Text::make('Email', 'email')->sortable(),
 
-            Text::make('Celular', 'phone'),
+            Text::make('Celular', 'phone')->sortable(),
 
             Textarea::make('Descripción', 'description'),
           

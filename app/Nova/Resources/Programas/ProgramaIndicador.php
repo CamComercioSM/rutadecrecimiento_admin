@@ -23,7 +23,7 @@ class ProgramaIndicador extends Resource
     public function fields(Request $request) {
         return [
             Text::make('Nombre', 'indicador_nombre')
-                ->rules('required')
+                ->rules('required')->sortable()->sortable()
         ];
     }
 
