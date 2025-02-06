@@ -32,10 +32,9 @@ class ProgramaConvocatoria extends Resource
     public function fields(Request $request) {
         
         return [
-            Text::make('Nombre', 'nombre')
-                ->rules('required'),
+        
 
-            Textarea::make('Requisitos', 'requisitos'),
+            
 
             
             Text::make('Persona a Cargo', 'persona_encargada')->rules('required'),
