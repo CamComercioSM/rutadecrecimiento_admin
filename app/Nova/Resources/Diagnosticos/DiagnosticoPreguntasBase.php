@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Nova\Resources\Diagnosticos;
-
+use App\Nova\Actions\ExportarPreguntasBaseDiagnosticos;
 use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
@@ -65,7 +65,12 @@ class DiagnosticoPreguntasBase extends Resource
     {
         return $query->whereNull('diagnostico_id');
     }
-
+    public function actions(Request $request) {
+        return [ 
+            new ExportarPreguntasBaseDiagnosticos(),
+            
+        ];
+    } 
     public static function uriKey()
     {
         return 'diagnostico-preguntas-base';

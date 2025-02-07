@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Nova\Resources\Diagnosticos;
-
+use App\Nova\Actions\ExportarDiagnosticos;
 use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
@@ -47,6 +47,13 @@ class Diagnostico extends Resource
             HasMany::make('Preguntas', 'preguntas', DiagnosticoPregunta::class),
         ];
     }
+
+    public function actions(Request $request) {
+        return [ 
+            new ExportarDiagnosticos(),
+            
+        ];
+    } 
 
     public static function uriKey()
     {

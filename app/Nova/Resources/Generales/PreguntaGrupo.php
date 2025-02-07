@@ -3,6 +3,7 @@
 namespace App\Nova\Resources\Generales;
 
 use App\Nova\Resources\Resource;
+use App\Nova\Actions\ExportarGrupoPreguntas;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -23,6 +24,12 @@ class PreguntaGrupo extends Resource
 
             Text::make('Nombre', 'preguntagrupo_nombre')
                 ->rules('required')->sortable(),
+        ];
+    }
+    public function actions(Request $request) {
+        return [ 
+            new ExportarGrupoPreguntas(),
+            
         ];
     }
 }

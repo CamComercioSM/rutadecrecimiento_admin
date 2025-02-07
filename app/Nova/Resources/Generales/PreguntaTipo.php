@@ -5,6 +5,7 @@ namespace App\Nova\Resources\Generales;
 use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
+use App\Nova\Actions\ExportarTipoPreguntas;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 
@@ -30,6 +31,12 @@ class PreguntaTipo extends Resource
                 ->trueValue(1)
                 ->falseValue(0) 
                 ->sortable(), 
+        ];
+    }
+    public function actions(Request $request) {
+        return [ 
+            new ExportarTipoPreguntas(),
+            
         ];
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Nova\Resources\Generales;
+use App\Nova\Actions\ExportarCapsulas;
 
 use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
@@ -32,6 +33,12 @@ class Capsula extends Resource
             Textarea::make('Descripción', 'descripcion'),
 
             Text::make('URL Video', 'url_video')->sortable(),
+        ];
+    }
+    public function actions(Request $request) {
+        return [ 
+            new ExportarCapsulas(),
+            
         ];
     }
 }

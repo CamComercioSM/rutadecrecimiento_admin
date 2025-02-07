@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Nova\Resources\Programas;
-
+use App\Nova\Actions\ExportarProgramas;
 use App\Nova\Resources\Generales\Etapa;
 use App\Nova\Resources\Resource;
 use Benjacho\BelongsToManyField\BelongsToManyField;
@@ -77,7 +77,12 @@ class Programa extends Resource
             HasMany::make('Convocatorias', 'convocatorias', ProgramaConvocatoria::class),
         ];
     }
-
+    public function actions(Request $request) {
+        return [ 
+            new ExportarProgramas(),
+            
+        ];
+    }
     public static function uriKey()
     {
         return 'programas';

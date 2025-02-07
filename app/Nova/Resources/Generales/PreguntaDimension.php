@@ -6,6 +6,7 @@ use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use App\Nova\Actions\ExportarDimensionPreguntas;
 
 class PreguntaDimension extends Resource
 {
@@ -23,6 +24,12 @@ class PreguntaDimension extends Resource
 
             Text::make('Nombre', 'preguntadimension_nombre')
                 ->rules('required')->sortable(),
+        ];
+    }
+    public function actions(Request $request) {
+        return [ 
+            new ExportarDimensionPreguntas(),
+            
         ];
     }
 }

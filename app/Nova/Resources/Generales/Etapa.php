@@ -4,6 +4,7 @@ namespace App\Nova\Resources\Generales;
 
 use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
+use App\Nova\Actions\ExportarEtapas;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -26,6 +27,12 @@ class Etapa extends Resource {
                 ->rules('required')->sortable(),
 
             Textarea::make('Descripción', 'description')->sortable(),
+        ];
+    }
+    public function actions(Request $request) {
+        return [ 
+            new ExportarEtapas(),
+            
         ];
     }
 }

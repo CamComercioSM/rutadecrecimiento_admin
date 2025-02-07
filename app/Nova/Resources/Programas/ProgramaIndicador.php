@@ -3,6 +3,7 @@
 namespace App\Nova\Resources\Programas;
 
 use App\Nova\Resources\Resource;
+use App\Nova\Actions\ExportarIndicadoresProgramas;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 
@@ -26,7 +27,13 @@ class ProgramaIndicador extends Resource
                 ->rules('required')->sortable()->sortable()
         ];
     }
-
+    
+    public function actions(Request $request) {
+        return [ 
+            new ExportarIndicadoresProgramas(),
+            
+        ];
+    }
     public static function uriKey()
     {
         return 'programas-indicadores';

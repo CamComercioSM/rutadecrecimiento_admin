@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Nova\Resources\Programas;
-
+use App\Nova\Actions\ExportarBancodeRequisitosConvocatoria;
 use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\HasMany;
@@ -47,6 +47,14 @@ class InscripcionesRequisitos extends Resource
     {
         return $query->whereNull('indicador_id'); 
     }
+
+    public function actions(Request $request) {
+        return [ 
+            new ExportarBancodeRequisitosConvocatoria(),
+            
+        ];
+    } 
+
 
     public static function uriKey()
     {

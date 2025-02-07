@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Nova\Resources\Programas;
+use App\Nova\Actions\ExportarBancoRequisitosIndicadoresConvocatorias;
 
 use App\Nova\Resources\Resource;
 use Illuminate\Http\Request;
@@ -51,7 +52,12 @@ class InscripcionesRequisitosIndicadores extends Resource
     {
         return $query->whereNotNull('indicador_id'); 
     }
-
+    public function actions(Request $request) {
+        return [ 
+            new ExportarBancoRequisitosIndicadoresConvocatorias(),
+            
+        ];
+    }
     public static function uriKey()
     {
         return 'requisitos-indicadores-convocatorias';
